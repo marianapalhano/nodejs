@@ -98,7 +98,21 @@ app.post('/withdraw', verifyIfClientExists, (request, response) => {
     } else {
         response.status(400).json({ error: "Insufficient funds"});
     }
-})
+});
+
+/*
+* RETORNA EXTRATO BANCÁRIO DE DETERMINADA DATA
+*/
+app.get('/statement/date', verifyIfClientExists, (request, response) => {
+    const { client } = request;
+    const { date } = request.query;
+    const formatedDate = new Date(date + " 00:00");
+
+    const statementByDate = client.statement.filter(operation => 
+        operation.created_at.toDateString() == formatedDate.toDateString()
+    );
+    return response.json(statementByDate);
+});
 
 // app.put('/courses/:id', (request, response) => {
 //     return response.json();
