@@ -122,8 +122,16 @@ app.put('/account', verifyIfClientExists, (request, response) => {
     const { name } = request.body;
 
     client.name = name;
-    return response.json(client);
+    return response.status(201).send();
 });
+
+/*
+* OBTEM DADOS DA CONTA
+*/
+app.get('/account', verifyIfClientExists, (request, response) => {
+    const { client } = request;
+    return response.json(client);
+})
 
 // app.patch('/courses/:id', (request, response) => {
 //     return response.json();
