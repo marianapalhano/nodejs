@@ -114,9 +114,16 @@ app.get('/statement/date', verifyIfClientExists, (request, response) => {
     return response.json(statementByDate);
 });
 
-// app.put('/courses/:id', (request, response) => {
-//     return response.json();
-// })
+/*
+* ATUALIZA DADOS DA CONTA
+*/
+app.put('/account', verifyIfClientExists, (request, response) => {
+    const { client } = request;
+    const { name } = request.body;
+
+    client.name = name;
+    return response.json(client);
+});
 
 // app.patch('/courses/:id', (request, response) => {
 //     return response.json();
