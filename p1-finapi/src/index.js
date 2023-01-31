@@ -131,14 +131,15 @@ app.put('/account', verifyIfClientExists, (request, response) => {
 app.get('/account', verifyIfClientExists, (request, response) => {
     const { client } = request;
     return response.json(client);
-})
+});
 
-// app.patch('/courses/:id', (request, response) => {
-//     return response.json();
-// })
-
-// app.delete('/courses/:id', (request, response) => {
-//     return response.json();
-// })
+/*
+* DELETA CONTA
+*/
+app.delete('/account', verifyIfClientExists, (request, response) => {
+    const { client } = request;
+    clients.splice(client, 1);
+    return response.status(200).json(clients);
+});
 
 app.listen(3333);
