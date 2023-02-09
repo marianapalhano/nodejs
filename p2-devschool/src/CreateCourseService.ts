@@ -1,7 +1,7 @@
 interface ICourse {
     name: string;
     instructor: string;
-    duration: number
+    duration: number;
 }
 
 class CreateCourseService {
