@@ -6,7 +6,7 @@ interface ICourse {
 
 class CreateCourseService {
     execute({ name, instructor, duration }: ICourse) {
-
+        console.log(name, instructor, duration);
     }
 }
 
