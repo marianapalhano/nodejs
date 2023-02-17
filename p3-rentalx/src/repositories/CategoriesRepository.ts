@@ -1,11 +1,9 @@
 import { Category } from "../models/Category";
-
-interface ICategory {
-    name: string;
-    description: string;
-}
-
-class CategoriesRepository {
+import {
+    type ICategoriesRepository,
+    type ICategory,
+} from "./ICategoriesRepository";
+class CategoriesRepository implements ICategoriesRepository {
     private readonly categories: Category[];
 
     constructor() {
