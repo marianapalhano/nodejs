@@ -5,10 +5,10 @@ interface ISpecification {
     description: string;
 }
 
-interface ISpeficitationsRepository {
+interface ISpecificationsRepository {
     findByName: (name: string) => Specification | undefined;
     list: () => Specification[];
-    create: ({ name, description }: Specification) => void;
+    create: ({ name, description }: ISpecification) => void;
 }
 
-export type { ISpeficitationsRepository, ISpecification };
+export type { ISpecificationsRepository, ISpecification };

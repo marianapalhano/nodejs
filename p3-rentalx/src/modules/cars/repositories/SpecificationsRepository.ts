@@ -1,10 +1,10 @@
 import { Specification } from "../models/Specification";
 import {
     type ISpecification,
-    type ISpeficitationsRepository,
+    type ISpecificationsRepository,
 } from "./ISpecificationsRepository";
 
-class SpecificationsRepository implements ISpeficitationsRepository {
+class SpecificationsRepository implements ISpecificationsRepository {
     private readonly specifications: Specification[];
     constructor() {
         this.specifications = [];
