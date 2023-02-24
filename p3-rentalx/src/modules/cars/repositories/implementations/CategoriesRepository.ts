@@ -1,8 +1,8 @@
-import { Category } from "../models/Category";
+import { Category } from "../../models/Category";
 import {
     type ICategoriesRepository,
     type ICategory,
-} from "./ICategoriesRepository";
+} from "../ICategoriesRepository";
 class CategoriesRepository implements ICategoriesRepository {
     private readonly categories: Category[];
 
@@ -13,6 +13,7 @@ class CategoriesRepository implements ICategoriesRepository {
     }
 
     public static getInstance(): CategoriesRepository {
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
         if (!CategoriesRepository.INSTANCE) {
             CategoriesRepository.INSTANCE = new CategoriesRepository();
         }

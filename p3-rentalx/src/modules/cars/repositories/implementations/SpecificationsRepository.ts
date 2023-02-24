@@ -1,13 +1,24 @@
-import { Specification } from "../models/Specification";
+import { Specification } from "../../models/Specification";
 import {
     type ISpecification,
     type ISpecificationsRepository,
-} from "./ISpecificationsRepository";
+} from "../ISpecificationsRepository";
 
 class SpecificationsRepository implements ISpecificationsRepository {
     private readonly specifications: Specification[];
+
+    private static INSTANCE: SpecificationsRepository;
+
     constructor() {
         this.specifications = [];
+    }
+
+    public static getInstance(): SpecificationsRepository {
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+        if (!SpecificationsRepository.INSTANCE) {
+            SpecificationsRepository.INSTANCE = new SpecificationsRepository();
+        }
+        return SpecificationsRepository.INSTANCE;
     }
 
     create({ name, description }: ISpecification): void {
