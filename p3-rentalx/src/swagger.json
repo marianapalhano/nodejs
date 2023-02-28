@@ -1,0 +1,11 @@
+{
+    "opeapi": "3.0.0",
+    "info": {
+        "title": "RentalX Documentation",
+        "description": "API for car rental",
+        "version": "1.0.0",
+        "contact": {
+            "email": "marianaufc@gmail.com"
+        }
+    }
+}
