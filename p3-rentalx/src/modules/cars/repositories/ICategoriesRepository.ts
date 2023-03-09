@@ -1,4 +1,4 @@
-import { type Category } from "../models/Category";
+import { type Category } from "../entities/Category";
 
 interface ICategory {
     name: string;

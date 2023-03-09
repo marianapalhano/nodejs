@@ -1,4 +1,4 @@
-import { type Specification } from "../models/Specification";
+import { type Specification } from "../entities/Specification";
 
 interface ISpecification {
     name: string;
