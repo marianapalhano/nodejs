@@ -1,41 +1,33 @@
+import { getRepository, type Repository } from "typeorm";
+
 import { Category } from "../../entities/Category";
 import {
     type ICategoriesRepository,
     type ICategory,
 } from "../ICategoriesRepository";
 class CategoriesRepository implements ICategoriesRepository {
-    private readonly categories: Category[];
+    private readonly repository: Repository<Category>;
 
-    private static INSTANCE: CategoriesRepository;
-
-    private constructor() {
-        this.categories = [];
+    constructor() {
+        this.repository = getRepository(Category);
     }
 
-    public static getInstance(): CategoriesRepository {
-        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-        if (!CategoriesRepository.INSTANCE) {
-            CategoriesRepository.INSTANCE = new CategoriesRepository();
-        }
-        return CategoriesRepository.INSTANCE;
-    }
-
-    create({ name, description }: ICategory): void {
-        const category = new Category();
-        Object.assign(category, {
+    async create({ name, description }: ICategory): Promise<void> {
+        const category = this.repository.create({
             name,
             description,
-            created_at: new Date(),
         });
-        this.categories.push(category);
+        await this.repository.save(category);
     }
 
-    list(): Category[] {
-        return this.categories;
+    async list(): Promise<Category[]> {
+        const categories = await this.repository.find();
+        return categories;
     }
 
-    findByName(name: string): Category | undefined {
-        return this.categories.find((category) => category.name === name);
+    async findByName(name: string): Promise<Category | null> {
+        const category = await this.repository.findOne({ where: { name } });
+        return category;
     }
 }
 

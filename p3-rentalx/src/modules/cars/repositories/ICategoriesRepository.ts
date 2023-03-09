@@ -6,9 +6,9 @@ interface ICategory {
 }
 
 interface ICategoriesRepository {
-    findByName: (name: string) => Category | undefined;
-    list: () => Category[];
-    create: ({ name, description }: ICategory) => void;
+    findByName: (name: string) => Promise<Category | null>;
+    list: () => Promise<Category[]>;
+    create: ({ name, description }: ICategory) => Promise<void>;
 }
 
 export type { ICategoriesRepository, ICategory };
