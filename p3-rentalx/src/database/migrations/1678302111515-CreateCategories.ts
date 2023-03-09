@@ -1,4 +1,4 @@
-import { type MigrationInterface, type QueryRunner } from "typeorm";
+import { Table, type MigrationInterface, type QueryRunner } from "typeorm";
 
 export class CreateCategories1678302111515 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
@@ -22,7 +22,7 @@ export class CreateCategories1678302111515 implements MigrationInterface {
                     {
                         name: "created_at",
                         type: "timestamp",
-                        default: now(),
+                        default: "now()",
                     },
                 ],
             })
