@@ -1,3 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import { inject, injectable } from "tsyringe";
+
 import { type ISpecificationsRepository } from "../../repositories/ISpecificationsRepository";
 
 interface IRequest {
@@ -5,8 +8,10 @@ interface IRequest {
     description: string;
 }
 
+@injectable()
 class CreateSpecificationUseCase {
     constructor(
+        @inject("SpecificationsRepository")
         private readonly SpecificationsRepository: ISpecificationsRepository
     ) {}
 

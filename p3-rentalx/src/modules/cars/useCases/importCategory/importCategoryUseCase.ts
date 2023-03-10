@@ -1,5 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { parse } from "csv-parse";
 import fs from "fs";
+import { inject, injectable } from "tsyringe";
 
 import { type ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
@@ -7,8 +9,13 @@ interface IImportCategories {
     name: string;
     description: string;
 }
+
+@injectable()
 class ImportCategoryUseCase {
-    constructor(private readonly categoriesRepository: ICategoriesRepository) {}
+    constructor(
+        @inject("CategoriesRepository")
+        private readonly categoriesRepository: ICategoriesRepository
+    ) {}
 
     async loadCategories(
         file: Express.Multer.File
