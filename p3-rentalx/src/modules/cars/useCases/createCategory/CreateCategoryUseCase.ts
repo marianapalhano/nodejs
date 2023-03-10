@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { inject, injectable } from "tsyringe";
+
 import { type ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 interface IRequest {
@@ -5,8 +8,13 @@ interface IRequest {
     description: string;
 }
 
+@injectable()
 class CreateCategoryUseCase {
-    constructor(private readonly categoriesRepository: ICategoriesRepository) {}
+    constructor(
+        @inject("CategoriesRepository")
+        private readonly categoriesRepository: ICategoriesRepository
+    ) {}
+
     async execute({ name, description }: IRequest): Promise<void> {
         const categoryAlreadyExists =
             await this.categoriesRepository.findByName(name);
