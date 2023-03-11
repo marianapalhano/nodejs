@@ -26,7 +26,7 @@ class ImportCategoryUseCase {
             const parseFile = parse();
             stream.pipe(parseFile);
             parseFile
-                .on("data", async (line) => {
+                .on("data", (line) => {
                     const [name, description] = line;
                     categories.push({
                         name,
@@ -34,7 +34,7 @@ class ImportCategoryUseCase {
                     });
                 })
                 .on("end", () => {
-                    fs.promises.unlink(file.path);
+                    void fs.promises.unlink(file.path);
                     resolve(categories);
                 })
                 .on("error", (err) => {
@@ -48,7 +48,7 @@ class ImportCategoryUseCase {
         categories.map(async (category) => {
             const { name, description } = category;
             const categoryAlreadyExists =
-                this.categoriesRepository.findByName(name);
+                await this.categoriesRepository.findByName(name);
             if (categoryAlreadyExists == null) {
                 await this.categoriesRepository.create({
                     name,
