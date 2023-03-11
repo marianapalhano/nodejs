@@ -50,7 +50,7 @@ class ImportCategoryUseCase {
             const categoryAlreadyExists =
                 this.categoriesRepository.findByName(name);
             if (categoryAlreadyExists == null) {
-                this.categoriesRepository.create({
+                await this.categoriesRepository.create({
                     name,
                     description,
                 });
