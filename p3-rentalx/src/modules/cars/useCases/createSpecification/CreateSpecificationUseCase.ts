@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-throw-literal */
 /* eslint-disable import/no-extraneous-dependencies */
 import { inject, injectable } from "tsyringe";
 
+import { AppError } from "../../../../errors/AppError";
 import { type ISpecificationsRepository } from "../../repositories/ISpecificationsRepository";
 
 interface IRequest {
@@ -20,7 +22,7 @@ class CreateSpecificationUseCase {
             await this.SpecificationsRepository.findByName(name);
 
         if (SpecificationAlreadyExists != null) {
-            throw new Error("Specification already exists.");
+            throw new AppError("Specification already exists.");
         }
         await this.SpecificationsRepository.create({ name, description });
     }

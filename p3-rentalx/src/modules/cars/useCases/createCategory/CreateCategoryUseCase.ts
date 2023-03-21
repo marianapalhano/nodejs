@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-throw-literal */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { inject, injectable } from "tsyringe";
 
+import { AppError } from "../../../../errors/AppError";
 import { type ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 interface IRequest {
@@ -20,7 +22,7 @@ class CreateCategoryUseCase {
             await this.categoriesRepository.findByName(name);
 
         if (categoryAlreadyExists != null) {
-            throw new Error("Category already exists.");
+            throw new AppError("Category already exists.");
         }
         await this.categoriesRepository.create({ name, description });
     }
