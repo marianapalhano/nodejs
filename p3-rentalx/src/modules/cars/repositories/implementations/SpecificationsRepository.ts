@@ -1,5 +1,6 @@
 import { getRepository, type Repository } from "typeorm";
 
+import dataSource from "../../../../database/data-source";
 import { Specification } from "../../entities/Specification";
 import {
     type ISpecification,
@@ -10,7 +11,7 @@ class SpecificationsRepository implements ISpecificationsRepository {
     private readonly repository: Repository<Specification>;
 
     constructor() {
-        this.repository = getRepository(Specification);
+        this.repository = dataSource.getRepository(Specification);
     }
 
     async create({ name, description }: ISpecification): Promise<void> {

@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 @Entity("users")
 class User {
     @PrimaryColumn()
-    id: string;
+    id?: string;
 
     @Column()
     name: string;
@@ -21,14 +21,12 @@ class User {
     @Column()
     isAdmin: boolean;
 
-    @Column()
-    avatar: string;
-
     @CreateDateColumn()
     created_at: Date;
 
     constructor() {
-        if (this.id === "") {
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+        if (!this.id) {
             this.id = uuidv4();
         }
     }

@@ -1,5 +1,6 @@
-import { getRepository, type Repository } from "typeorm";
+import { type Repository } from "typeorm";
 
+import dataSource from "../../../../database/data-source";
 import { type ICreateUser } from "../../dtos/ICreateUser";
 import { User } from "../../entities/User";
 import { type IUsersRepository } from "../IUsersRepository";
@@ -8,7 +9,7 @@ class UsersRepository implements IUsersRepository {
     private readonly repository: Repository<User>;
 
     constructor() {
-        this.repository = getRepository(User);
+        this.repository = dataSource.getRepository(User);
     }
 
     async create({

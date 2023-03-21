@@ -1,5 +1,6 @@
-import { getRepository, type Repository } from "typeorm";
+import { type Repository } from "typeorm";
 
+import dataSource from "../../../../database/data-source";
 import { Category } from "../../entities/Category";
 import {
     type ICategoriesRepository,
@@ -9,7 +10,7 @@ class CategoriesRepository implements ICategoriesRepository {
     private readonly repository: Repository<Category>;
 
     constructor() {
-        this.repository = getRepository(Category);
+        this.repository = dataSource.getRepository(Category);
     }
 
     async create({ name, description }: ICategory): Promise<void> {
