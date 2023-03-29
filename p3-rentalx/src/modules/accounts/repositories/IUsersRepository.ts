@@ -3,8 +3,8 @@ import { type User } from "../entities/User";
 
 interface IUsersRepository {
     create: (data: ICreateUser) => Promise<void>;
-    findByEmail: (email: string) => Promise<User | null>;
-    findById: (id: string) => Promise<User | null>;
+    findByEmail: (email: string) => Promise<User>;
+    findById: (id: string) => Promise<User>;
 }
 
 export type { IUsersRepository };

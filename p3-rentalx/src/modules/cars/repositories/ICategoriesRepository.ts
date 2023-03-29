@@ -6,7 +6,7 @@ interface ICategory {
 }
 
 interface ICategoriesRepository {
-    findByName: (name: string) => Promise<Category | null>;
+    findByName: (name: string) => Promise<Category>;
     list: () => Promise<Category[]>;
     create: ({ name, description }: ICategory) => Promise<void>;
 }
