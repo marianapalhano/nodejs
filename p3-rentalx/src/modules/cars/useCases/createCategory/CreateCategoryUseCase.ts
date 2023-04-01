@@ -2,7 +2,8 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { inject, injectable } from "tsyringe";
 
-import { AppError } from "../../../../errors/AppError";
+import { AppError } from "@errors/AppError";
+
 import { type ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 interface IRequest {

@@ -9,10 +9,11 @@ import "reflect-metadata";
 import swaggerUi from "swagger-ui-express";
 import { type DataSource } from "typeorm";
 
+import { AppError } from "@errors/AppError";
+
 import dataSource from "./database/data-source";
-import { AppError } from "./errors/AppError";
 import { router } from "./routes";
-import "./shared/container";
+import "@shared/container";
 import swaggerFile from "./swagger.json";
 
 const app = express();

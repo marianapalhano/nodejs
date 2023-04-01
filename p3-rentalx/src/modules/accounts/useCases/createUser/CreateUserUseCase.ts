@@ -4,7 +4,8 @@
 import { hash } from "bcrypt";
 import { inject, injectable } from "tsyringe";
 
-import { AppError } from "../../../../errors/AppError";
+import { AppError } from "@errors/AppError";
+
 import { type ICreateUser } from "../../dtos/ICreateUser";
 import { type IUsersRepository } from "../../repositories/IUsersRepository";
 
