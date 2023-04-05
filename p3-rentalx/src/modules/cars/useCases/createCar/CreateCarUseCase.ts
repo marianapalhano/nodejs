@@ -27,7 +27,17 @@ class CreateCarUseCase {
         fine_amount,
         carmaker,
         category_id,
-    }: IRequest): Promise<void> {}
+    }: IRequest): Promise<void> {
+        await this.carsRepository.create({
+            name,
+            description,
+            daily_fee,
+            license_plate,
+            fine_amount,
+            carmaker,
+            category_id,
+        });
+    }
 }
 
 export { CreateCarUseCase };
