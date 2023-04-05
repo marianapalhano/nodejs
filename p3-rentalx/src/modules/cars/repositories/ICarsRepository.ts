@@ -1,4 +1,4 @@
-interface ICar {
+interface ICreateCar {
     name: string;
     description: string;
     daily_fee: number;
@@ -9,7 +9,7 @@ interface ICar {
 }
 
 interface ICarsRepository {
-    create: (data: ICar) => Promise<void>;
+    create: (data: ICreateCar) => Promise<void>;
 }
 
-export type { ICarsRepository, ICar };
+export type { ICarsRepository, ICreateCar };
