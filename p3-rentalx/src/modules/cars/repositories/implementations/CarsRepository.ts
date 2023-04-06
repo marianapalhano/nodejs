@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { type Repository } from "typeorm";
 
 import { Car } from "@modules/cars/entities/Car";
@@ -36,6 +37,30 @@ class CarsRepository implements ICarsRepository {
     async findByLicensePlate(license_plate: string): Promise<Car> {
         const car = await this.repository.findOne({ where: { license_plate } });
         return car;
+    }
+
+    async findAvailableCars(
+        carmaker?: string,
+        category_id?: string,
+        name?: string
+    ): Promise<Car[]> {
+        const carsQuery = this.repository
+            .createQueryBuilder("cars")
+            .where("is_available = :is_available", { is_available: true });
+
+        if (carmaker) {
+            carsQuery.where("cars.carmaker = :carmaker", { carmaker });
+        }
+
+        if (name) {
+            carsQuery.where("cars.name = :name", { name });
+        }
+
+        if (category_id) {
+            carsQuery.where("cars.category_id = :category_id", { category_id });
+        }
+
+        return await carsQuery.getMany();
     }
 }
 
