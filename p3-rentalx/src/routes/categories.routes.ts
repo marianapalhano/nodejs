@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { Router } from "express";
+import { ensureAdmin } from "middlewares/ensureAdmin";
+import { ensureAuthenticated } from "middlewares/ensureAuthenticated";
 import multer from "multer";
 
 import { CreateCategoryController } from "@modules/cars/useCases/createCategory/CreateCategoryController";
@@ -16,12 +18,19 @@ const createCategoryController = new CreateCategoryController();
 const importCategoryController = new ImportCategoryController();
 const listCategoriesController = new ListCategoriesController();
 
-categoriesRoutes.post("/", createCategoryController.handle);
+categoriesRoutes.post(
+    "/",
+    ensureAuthenticated,
+    ensureAdmin,
+    createCategoryController.handle
+);
 
 categoriesRoutes.get("/", listCategoriesController.handle);
 
 categoriesRoutes.post(
     "/import",
+    ensureAuthenticated,
+    ensureAdmin,
     upload.single("file"),
     importCategoryController.handle
 );
