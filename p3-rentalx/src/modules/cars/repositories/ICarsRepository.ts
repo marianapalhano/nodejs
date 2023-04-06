@@ -13,6 +13,11 @@ interface ICreateCar {
 interface ICarsRepository {
     create: (data: ICreateCar) => Promise<void>;
     findByLicensePlate: (license_plate: string) => Promise<Car>;
+    findAvailableCars: (
+        carmaker?: string,
+        category_id?: string,
+        name?: string
+    ) => Promise<Car[]>;
 }
 
 export type { ICarsRepository, ICreateCar };
