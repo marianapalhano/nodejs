@@ -8,7 +8,8 @@ interface ISpecification {
 interface ISpecificationsRepository {
     findByName: (name: string) => Promise<Specification>;
     list: () => Promise<Specification[]>;
-    create: ({ name, description }: ISpecification) => Promise<void>;
+    create: ({ name, description }: ISpecification) => Promise<Specification>;
+    findByIds: (ids: string[]) => Promise<Specification>;
 }
 
 export type { ISpecificationsRepository, ISpecification };
