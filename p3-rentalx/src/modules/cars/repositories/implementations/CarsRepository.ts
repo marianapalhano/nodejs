@@ -23,7 +23,7 @@ class CarsRepository implements ICarsRepository {
         carmaker,
         category_id,
         specifications,
-    }: ICreateCar): Promise<void> {
+    }: ICreateCar): Promise<Car> {
         const car = this.repository.create({
             id,
             name,
@@ -36,6 +36,7 @@ class CarsRepository implements ICarsRepository {
             specifications,
         });
         await this.repository.save(car);
+        return car;
     }
 
     async findByLicensePlate(license_plate: string): Promise<Car> {

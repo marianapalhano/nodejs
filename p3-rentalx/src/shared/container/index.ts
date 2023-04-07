@@ -3,8 +3,10 @@ import { container } from "tsyringe";
 
 import { UsersRepository } from "@modules/accounts/repositories/implementations/UsersRepository";
 import { type IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
+import { type ICarImageRepository } from "@modules/cars/repositories/ICarImageRepository";
 import { type ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { type ICategoriesRepository } from "@modules/cars/repositories/ICategoriesRepository";
+import { CarImageRepository } from "@modules/cars/repositories/implementations/CarImageRepository";
 import { CarsRepository } from "@modules/cars/repositories/implementations/CarsRepository";
 import { CategoriesRepository } from "@modules/cars/repositories/implementations/CategoriesRepository";
 import { SpecificationsRepository } from "@modules/cars/repositories/implementations/SpecificationsRepository";
@@ -26,3 +28,8 @@ container.registerSingleton<IUsersRepository>(
 );
 
 container.registerSingleton<ICarsRepository>("CarsRepository", CarsRepository);
+
+container.registerSingleton<ICarImageRepository>(
+    "CarImageRepository",
+    CarImageRepository
+);
