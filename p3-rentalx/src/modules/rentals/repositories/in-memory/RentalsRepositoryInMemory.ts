@@ -1,3 +1,10 @@
+import { Rental } from "@modules/rentals/entities/Rental";
+
+import {
+    type ICreateRental,
+    type IRentalsRepository,
+} from "../IRentalsRepository";
+
 class RentalsRepositoryInMemory implements IRentalsRepository {
     rentals: Rental[] = [];
 
