@@ -10,7 +10,7 @@ class ReturnRentalController {
 
         const returnRentalUseCase = container.resolve(ReturnRentalUseCase);
 
-        const rental = returnRentalUseCase.execute({
+        const rental = await returnRentalUseCase.execute({
             id,
             user_id,
         });
