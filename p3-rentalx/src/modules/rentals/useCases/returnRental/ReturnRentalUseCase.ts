@@ -10,7 +10,7 @@ interface IRequest {
 }
 
 @injectable()
-class ReturnRental {
+class ReturnRentalUseCase {
     constructor(
         @inject("RentalsRepository")
         private rentalsRepository: IRentalsRepository
@@ -24,7 +24,7 @@ class ReturnRental {
         const car = await this.carsRepository.findById(rental.car_id);
 
         const minimum_daily = 1;
-        
+
         if (!rental) {
             throw new AppError("Rental does not exist.");
         }
@@ -65,4 +65,4 @@ class ReturnRental {
     }
 }
 
-export { ReturnRental }
+export { ReturnRentalUseCase }
