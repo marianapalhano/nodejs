@@ -22,6 +22,7 @@ interface ICarsRepository {
         name?: string
     ) => Promise<Car[]>;
     findById: (id: string) => Promise<Car>;
+    updateAvailable: (id: string, is_available: boolean) => Promise<void>;
 }
 
 export type { ICarsRepository, ICreateCar };

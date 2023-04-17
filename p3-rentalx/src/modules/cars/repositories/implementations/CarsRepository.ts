@@ -72,6 +72,16 @@ class CarsRepository implements ICarsRepository {
         const car = await this.repository.findOne({ where: { id } });
         return car;
     }
+
+    async updateAvailable(id: string, is_available: boolean): Promise<void> {
+        await this.repository
+            .createQueryBuilder()
+            .update()
+            .set({ is_available })
+            .where("id = :id")
+            .setParameters({ id })
+            .execute();
+    }
 }
 
 export { CarsRepository };
