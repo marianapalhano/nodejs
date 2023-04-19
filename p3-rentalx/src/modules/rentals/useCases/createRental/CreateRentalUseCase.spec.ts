@@ -59,7 +59,7 @@ describe("Create Rental", () => {
                 expected_return_date: dayAdd24Hours,
             })
         ).rejects.toEqual(
-            new AppError("There's a rental in progress for user!")
+            new AppError("There's a rental in progress for the user")
         );
     });
 
@@ -86,6 +86,6 @@ describe("Create Rental", () => {
                 car_id: "test",
                 expected_return_date: dayjs().toDate(),
             })
-        ).rejects.toEqual(new AppError("Invalid return time!"));
+        ).rejects.toEqual(new AppError("Invalid return time"));
     });
 });

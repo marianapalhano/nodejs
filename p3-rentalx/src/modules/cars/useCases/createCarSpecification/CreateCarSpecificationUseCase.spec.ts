@@ -28,7 +28,7 @@ describe("Create Car Specification", () => {
                 car_id,
                 specifications_id,
             })
-        ).rejects.toEqual(new AppError("Car does not exists!"));
+        ).rejects.toEqual(new AppError("Car does not exist"));
     });
 
     it("should be able to add a new specification to a car", async () => {
