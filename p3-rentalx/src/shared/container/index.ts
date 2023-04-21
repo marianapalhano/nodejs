@@ -2,7 +2,9 @@
 import { container } from "tsyringe";
 
 import { UsersRepository } from "@modules/accounts/repositories/implementations/UsersRepository";
+import { UsersTokensRepository } from "@modules/accounts/repositories/implementations/UsersTokensRepository";
 import { type IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
+import { type IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
 import { type ICarImageRepository } from "@modules/cars/repositories/ICarImageRepository";
 import { type ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { type ICategoriesRepository } from "@modules/cars/repositories/ICategoriesRepository";
@@ -39,4 +41,9 @@ container.registerSingleton<ICarImageRepository>(
 container.registerSingleton<IRentalsRepository>(
     "RentalsRepository",
     RentalsRepository
+);
+
+container.registerSingleton<IUsersTokensRepository>(
+    "UsersTokensRepository",
+    UsersTokensRepository
 );
