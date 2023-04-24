@@ -23,4 +23,4 @@ interface IUsersTokensRepository {
     findByRefreshToken: (refresh_token: string) => Promise<UsersTokens>;
 }
 
-export type { IUsersTokensRepository };
+export type { IUsersTokensRepository, ICreateUsersTokens };
