@@ -1,10 +1,11 @@
 import dataSource from "database/data-source";
 import { getRepository, type Repository } from "typeorm";
 
-import { type ICreateUserTokenDTO } from "@modules/accounts/dtos/ICreateUserTokenDTO";
-import { type IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
-
-import { UsersTokens } from "../entities/UsersTokens";
+import { UsersTokens } from "@modules/accounts/entities/UsersTokens";
+import {
+    type ICreateUsersTokens,
+    type IUsersTokensRepository,
+} from "@modules/accounts/repositories/IUsersTokensRepository";
 
 class UsersTokensRepository implements IUsersTokensRepository {
     private readonly repository: Repository<UsersTokens>;
@@ -17,7 +18,7 @@ class UsersTokensRepository implements IUsersTokensRepository {
         expires_date,
         refresh_token,
         user_id,
-    }: ICreateUserTokenDTO): Promise<UsersTokens> {
+    }: ICreateUsersTokens): Promise<UsersTokens> {
         const userToken = this.repository.create({
             expires_date,
             refresh_token,

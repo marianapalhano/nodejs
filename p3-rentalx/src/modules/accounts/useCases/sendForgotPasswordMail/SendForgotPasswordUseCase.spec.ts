@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { AppError } from "@errors/AppError";
 import { UsersRepositoryInMemory } from "@modules/accounts/repositories/in-memory/UsersRepositoryInMemory";
 import { UsersTokensRepositoryInMemory } from "@modules/accounts/repositories/in-memory/UsersTokensRepositoryInMemory";
@@ -48,7 +49,7 @@ describe("Send Forgot Mail", () => {
         ).rejects.toEqual(new AppError("User does not exist"));
     });
 
-    it("should be able to create an users token", async () => {
+    it("should be able to create a users token", async () => {
         const generateTokenMail = spyOn(
             usersTokensRepositoryInMemory,
             "create"
