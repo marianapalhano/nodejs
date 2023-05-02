@@ -4,6 +4,7 @@ import express, {
     type Request,
     type Response,
 } from "express";
+import "dotenv/config";
 import "express-async-errors";
 import "reflect-metadata";
 import swaggerUi from "swagger-ui-express";
