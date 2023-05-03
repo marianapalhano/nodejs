@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable import/no-extraneous-dependencies */
 import express, {
     type NextFunction,
@@ -15,9 +16,12 @@ import { router } from "./routes";
 import "@shared/container";
 import swaggerFile from "./swagger.json";
 
+import upload from "@config/upload";
+
 const app = express();
 app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use("/avatar", express.static(`${upload.tmpFolder}/avatar`));
 
 app.use(router);
 
