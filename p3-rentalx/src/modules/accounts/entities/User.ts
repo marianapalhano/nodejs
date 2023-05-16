@@ -1,4 +1,4 @@
-import { Expose } from "class-transformer";
+import { Expose } from "class-transformer"
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuidv4 } from "uuid";
 
@@ -41,7 +41,6 @@ class User {
     }
 
     constructor() {
-        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
         if (!this.id) {
             this.id = uuidv4();
         }
@@ -49,12 +48,3 @@ class User {
 }
 
 export { User };
-function Expose(arg0: {
-    name: string;
-}): (
-    target: User,
-    propertyKey: "avatar_url",
-    descriptor: TypedPropertyDescriptor<() => string>
-) => void | TypedPropertyDescriptor<() => string> {
-    throw new Error("Function not implemented.");
-}
