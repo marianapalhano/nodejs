@@ -1,8 +1,7 @@
+import { AppError } from "@errors/AppError";
 import { type NextFunction, type Request, type Response } from "express";
 import { RateLimiterRedis } from "rate-limiter-flexible";
 import redis from "redis";
-
-import { AppError } from "@shared/errors/AppError";
 
 export default async function rateLimiter(
     request: Request,
@@ -10,8 +9,10 @@ export default async function rateLimiter(
     next: NextFunction
 ): Promise<void> {
     const redisClient = redis.createClient({
-        host: process.env.REDIS_HOST,
-        port: Number(process.env.REDIS_PORT),
+        socket: {
+            host: process.env.REDIS_HOST,
+            port: Number(process.env.REDIS_PORT),
+        }
     });
 
     const limiter = new RateLimiterRedis({
