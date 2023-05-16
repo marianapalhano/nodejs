@@ -1,4 +1,4 @@
-import { classToClass } from "class-transformer";
+import { classToClass } from 'class-transformer';
 
 import { type IUserResponse } from "../dtos/IUserResponse";
 import { type User } from "../entities/User";
