@@ -1,4 +1,4 @@
-import { classToClass } from 'class-transformer';
+import { instanceToInstance } from "class-transformer";
 
 import { type IUserResponse } from "../dtos/IUserResponse";
 import { type User } from "../entities/User";
@@ -12,7 +12,7 @@ class UserMap {
         driver_license,
         avatar_url,
     }: User): IUserResponse {
-        const user = classToClass({
+        const user = instanceToInstance({
             email,
             name,
             id,
