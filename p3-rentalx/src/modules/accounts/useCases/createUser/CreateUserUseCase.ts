@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-throw-literal */
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
-/* eslint-disable import/no-extraneous-dependencies */
 import { hash } from "bcrypt";
 import { inject, injectable } from "tsyringe";
 

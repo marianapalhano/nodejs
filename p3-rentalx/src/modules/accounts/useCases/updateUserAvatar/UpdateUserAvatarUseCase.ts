@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { inject, injectable } from "tsyringe";
 
 import { IStorageProvider } from "@shared/container/providers/StorageProvider/IStorageProvider";

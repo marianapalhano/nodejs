@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 import { Router } from "express";
 import { ensureAdmin } from "middlewares/ensureAdmin";
 import { ensureAuthenticated } from "middlewares/ensureAuthenticated";

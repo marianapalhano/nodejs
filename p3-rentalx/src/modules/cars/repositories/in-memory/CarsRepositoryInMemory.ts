@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { Car } from "@modules/cars/entities/Car";
 
 import { type ICreateCar, type ICarsRepository } from "../ICarsRepository";
@@ -15,7 +13,7 @@ class CarsRepositoryInMemory implements ICarsRepository {
         fine_amount,
         carmaker,
         category_id,
-    }: ICreateCar): Promise<void> {
+    }: ICreateCar): Promise<Car> {
         const car = new Car();
         Object.assign(car, {
             name,
@@ -27,6 +25,7 @@ class CarsRepositoryInMemory implements ICarsRepository {
             category_id,
         });
         this.cars.push(car);
+        return car;
     }
 
     async findByLicensePlate(license_plate: string): Promise<Car> {
@@ -46,6 +45,10 @@ class CarsRepositoryInMemory implements ICarsRepository {
                 (name && car.name === name)
         );
     }
+
+    findById: (id: string) => Promise<Car>;
+
+    updateAvailable: (id: string, is_available: boolean) => Promise<void>;
 }
 
 export { CarsRepositoryInMemory };

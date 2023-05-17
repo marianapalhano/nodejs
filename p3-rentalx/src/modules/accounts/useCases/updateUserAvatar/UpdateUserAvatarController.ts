@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { type Request, type Response } from "express";
 import { container } from "tsyringe";
 

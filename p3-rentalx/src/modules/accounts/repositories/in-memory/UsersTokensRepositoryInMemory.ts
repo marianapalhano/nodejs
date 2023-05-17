@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { UsersTokens } from "@modules/accounts/entities/UsersTokens";
 
 import {

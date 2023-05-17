@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-throw-literal */
-/* eslint-disable import/no-extraneous-dependencies */
 import { inject, injectable } from "tsyringe";
 
 import { AppError } from "@errors/AppError";

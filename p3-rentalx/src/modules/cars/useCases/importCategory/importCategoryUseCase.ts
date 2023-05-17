@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { parse } from "csv-parse";
 import fs from "fs";
 import { inject, injectable } from "tsyringe";

@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-confusing-void-expression */
 import { AppError } from "@errors/AppError";
 import { CarsRepositoryInMemory } from "@modules/cars/repositories/in-memory/CarsRepositoryInMemory";
 
 import { CreateCarSpecificationUseCase } from "./CreateCarSpecificationUseCase";
+import { SpecificationsRepositoryInMemory } from "@modules/cars/repositories/in-memory/SpecificationsRepositoryInMemory";
 
 let createCarSpecificationUseCase: CreateCarSpecificationUseCase;
 let carsRepositoryInMemory: CarsRepositoryInMemory;

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 import { Router } from "express";
 
 import { AuthenticateUserController } from "@modules/accounts/useCases/authenticateUser/AuthenticateUserController";

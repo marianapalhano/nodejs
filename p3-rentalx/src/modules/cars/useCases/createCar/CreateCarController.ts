@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-confusing-void-expression */
 import { type Request, type Response } from "express";
 import { container } from "tsyringe";
 

@@ -1,6 +1,3 @@
-/* eslint-disable new-cap */
-/* eslint-disable @typescript-eslint/no-use-before-define */
-/* eslint-disable @typescript-eslint/no-misused-promises */
 import { Router } from "express";
 
 import { ResetPasswordController } from "@modules/accounts/useCases/resetPassword/resetPasswordController";

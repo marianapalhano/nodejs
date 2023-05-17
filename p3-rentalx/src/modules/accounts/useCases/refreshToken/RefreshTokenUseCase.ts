@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-throw-literal */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { verify, sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
 

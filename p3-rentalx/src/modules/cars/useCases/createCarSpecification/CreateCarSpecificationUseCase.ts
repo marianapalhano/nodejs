@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { inject, injectable } from "tsyringe";
 
 import { AppError } from "@errors/AppError";

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { type IMailProvider } from "../IMailProvider";
 
 class MailProviderInMemory implements IMailProvider {

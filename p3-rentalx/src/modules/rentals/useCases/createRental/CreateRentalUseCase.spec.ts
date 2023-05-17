@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-confusing-void-expression */
 import dayjs from "dayjs";
 
 import { AppError } from "@errors/AppError";

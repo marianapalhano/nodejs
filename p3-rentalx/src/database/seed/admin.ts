@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import { hash } from "bcrypt";
 import { createConnection } from "database";
 import { v4 as uuidV4 } from "uuid";

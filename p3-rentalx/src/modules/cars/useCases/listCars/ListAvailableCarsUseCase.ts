@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/return-await */
-/* eslint-disable import/no-unresolved */
 import { inject, injectable } from "tsyringe";
 
 import { type Car } from "@modules/cars/entities/Car";
@@ -18,11 +16,11 @@ class ListAvailableCarsUseCase {
     ) {}
 
     async execute({ name, carmaker, category_id }: IRequest): Promise<Car[]> {
-        return await this.carsRepository.findAvailableCars({
-            name,
+        return await this.carsRepository.findAvailableCars(
             carmaker,
             category_id,
-        });
+            name,
+        );
     }
 }
 

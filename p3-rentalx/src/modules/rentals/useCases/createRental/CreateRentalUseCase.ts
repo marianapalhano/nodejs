@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-throw-literal */
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { inject, injectable } from "tsyringe";
 
 import { AppError } from "@errors/AppError";
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { type Rental } from "@modules/rentals/entities/Rental";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 
 interface IRequest {
     user_id: string;

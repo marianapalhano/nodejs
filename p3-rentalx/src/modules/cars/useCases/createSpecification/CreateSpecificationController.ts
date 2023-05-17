@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { type Request, type Response } from "express";
 import { container } from "tsyringe";
 

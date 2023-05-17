@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-throw-literal */
 import { type NextFunction, type Request, type Response } from "express";
 
 import { AppError } from "@errors/AppError";

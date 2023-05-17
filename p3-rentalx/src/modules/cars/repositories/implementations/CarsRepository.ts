@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { type Repository } from "typeorm";
 
 import { Car } from "@modules/cars/entities/Car";
