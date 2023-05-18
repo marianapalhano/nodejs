@@ -1,5 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { container } from "tsyringe";
+import "./providers"
 
 import { UsersRepository } from "@modules/accounts/repositories/implementations/UsersRepository";
 import { UsersTokensRepository } from "@modules/accounts/repositories/implementations/UsersTokensRepository";

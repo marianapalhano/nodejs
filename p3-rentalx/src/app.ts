@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import express, {
     type NextFunction,
     type Request,
@@ -6,7 +7,6 @@ import express, {
 import cors from "cors";
 import "dotenv/config";
 import "express-async-errors";
-import "reflect-metadata";
 import swaggerUi from "swagger-ui-express";
 import * as Sentry from "@sentry/node";
 import * as Tracing from "@sentry/tracing";
@@ -22,19 +22,19 @@ import rateLimiter from "middlewares/rateLimiter";
 
 const app = express();
 
-app.use(rateLimiter);
+// app.use(rateLimiter);
 
-Sentry.init({
-  dsn: process.env.SENTRY_DSN,
-  integrations: [
-    new Sentry.Integrations.Http({ tracing: true }),
-    new Tracing.Integrations.Express({ app }),
-  ],
-  tracesSampleRate: 1.0,
-});
+// Sentry.init({
+//   dsn: process.env.SENTRY_DSN,
+//   integrations: [
+//     new Sentry.Integrations.Http({ tracing: true }),
+//     new Tracing.Integrations.Express({ app }),
+//   ],
+//   tracesSampleRate: 1.0,
+// });
 
-app.use(Sentry.Handlers.requestHandler());
-app.use(Sentry.Handlers.tracingHandler());
+// app.use(Sentry.Handlers.requestHandler());
+// app.use(Sentry.Handlers.tracingHandler());
 
 app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
